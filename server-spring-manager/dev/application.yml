@@ -1,0 +1,47 @@
+server:
+  port: 8571
+spring:
+  application:
+      name: manager-service
+  security:
+    user:
+      name: "admin"
+      password: "admin"
+  cloud:
+      stream:
+        default-binder: kafka
+        kafka:
+          binder:
+            brokers: 192.168.2.110:9092
+            zkNodes: 192.168.2.110:2181
+management:
+   endpoints:
+     web:
+       exposure:
+         include: "*"
+   endpoint:
+     health:
+       show-details: ALWAYS
+
+
+feign:
+  hystrix:
+    enabled: true
+  client:
+      config:
+        remote-service:
+          connectTimeout: 12000
+          readTimeout: 12000
+
+
+ribbon:
+  ReadTimeout: 60000
+  SocketTimeout: 60000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000

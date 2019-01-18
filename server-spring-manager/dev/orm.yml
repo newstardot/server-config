@@ -1,0 +1,14 @@
+com:
+  chineseall:
+    orm:
+      database:
+         dataSource:
+            - name: manager-master
+              driver_class: com.mysql.jdbc.Driver
+              url: jdbc:mysql://106.15.181.21:3306/biu?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false
+              username: root
+              password: root
+              pool_size: 1
+      redis:
+        host: 106.15.181.21
+        port: 6379
